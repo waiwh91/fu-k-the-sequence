@@ -47,6 +47,27 @@ int sit1(int x[]){
   }
 }
 
+//f(x)=in^2+j
+
+int sit2(int x[]){
+	//cout<<"111111";
+	int flag=0;
+	i=((x[2]-x[1])-(x[1]-x[0]))/2;
+	j=x[0]-i;
+	for(int m=1;m<=4;m++){
+		if(i*m*m+j==x[m-1]){
+			flag++;
+		}
+	}
+	if(flag==4){
+    return 1;
+  }else{
+    return 0;
+  }
+	
+	
+}
+
 string index(int x[]){
 	//cout<<"1111111";
     int f=0;
@@ -54,10 +75,28 @@ string index(int x[]){
     	//cout<<j;
     	string m1=to_String(i);
     	string m2=to_String(j);
+    	if(m1=="1"){
+    		m1="";
+		}
     	if(j==0){
     		return "f(x)="+m1+"x";
 		}else{
 			return "f(x)="+m1+"x+"+m2;
+		}
+      
+      f=1;
+    }
+    if(sit2(x)==1){
+    	//cout<<j;
+    	string m1=to_String(i);
+    	string m2=to_String(j);
+    	if(m1=="1"){
+    		m1="";
+		}
+    	if(j==0){
+    		return "f(x)="+m1+"x^2";
+		}else{
+			return "f(x)="+m1+"x^2+"+m2;
 		}
       
       f=1;
@@ -68,6 +107,7 @@ string index(int x[]){
     }
   
 }
+
 int main(int argc, char const *argv[]) {
   printf("%s\n","请输入索引的前4位数" );
   int a[4];
@@ -75,7 +115,8 @@ int main(int argc, char const *argv[]) {
     //scanf("%d", a[i]);
 	cin>>a[i];
   }
-  cout<<index(a);
+  cout<<index(a)<<endl;
   
+  system("pause");
   return 0;
 }
