@@ -54,7 +54,12 @@ string index(int x[]){
     	//cout<<j;
     	string m1=to_String(i);
     	string m2=to_String(j);
-      return "f(x)="+m1+"x+"+m2;
+    	if(j==0){
+    		return "f(x)="+m1+"x";
+		}else{
+			return "f(x)="+m1+"x+"+m2;
+		}
+      
       f=1;
     }
     
